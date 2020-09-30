@@ -1,11 +1,57 @@
 //Factory method
 //...pensando
 
+class profile {
+    constructor () {
+        this.sections = []
+        this.createProfile()
+    }
+    addSections(...sections) {
+        for (let section of sections) {
+            this.sections.push(section)
+        }
+    }
+    createProfile() {
+        console.log("need to implement")
+    }
+}
 
+function publication() {
+    return {
+        page: "Publication"
+    }
+}
+function Patents() {
+    return {
+        page: "Patents"
+    }
+}
+function Album() {
+    return {
+        page: "Album"
+    }
+}
+function Friends() {
+    return {
+        page: "Friends"
+    }
+}
+class Facebook extends profile {
+    createProfile() {
+        this.addSections(new Album(), new Friends(), new publication())
+    }
+}
+class Linkdin extends profile {
+    createProfile() {
+        this.addSections(new Patents(), new Friends(), new publication())
+    }
+}
+face = new Facebook()
+link = new Linkdin()
 
 //Abstract factory
 function americanPizza() {
-    this.igredientes = ["tomate", "salame", "chedar"]
+    this.igredientes = ["tomate", "salame", "cheedar"]
 }
 function vegAmericanPizza() {
     this.igredientes = ["champinhon", "oregano", "tomate", "cebola"]
@@ -55,4 +101,4 @@ function pizzaStore(...pizzarias) {
     }
 }
 store = new pizzaStore(usaPizzaria(), brPizzaria())
-
+console.log(face, link)
