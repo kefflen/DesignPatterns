@@ -1,6 +1,4 @@
 //Factory method
-//...pensando
-
 class profile {
     constructor () {
         this.sections = []
